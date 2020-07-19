@@ -91,6 +91,7 @@ router.route('/login')
 // register
 router.route('/register')
   .get(sessionChecker, (req, res) => {
+    const user = req.session.user
     pageSetting.titlePage = 'Register'
     let info, show = req.flash('show')
 
@@ -104,7 +105,7 @@ router.route('/register')
       info = Flasher.getDefault()
     }
 
-    res.render('auth/register', { pageSetting, info })
+    res.render('auth/register', { pageSetting, info, user })
   })
   .post(async (req, res) => {
     const name = req.body.name
