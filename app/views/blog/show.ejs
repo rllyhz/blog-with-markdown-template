@@ -1,0 +1,17 @@
+<%- include('../partials/header')  %>
+
+<div class="card">
+  Penulis: <a href="/author/<%= article.createdBy %>">@<%= article.createdBy %></a> <br />
+  Dibuat Pada: <%= article.createdAt.toLocaleDateString() %>
+</div>
+
+<div class="card markdown">
+  <%- article.sanitizedHTML %>
+</div>
+
+<div class="card__buttons mt-2">
+  <a href="/admin/articles/edit/<%= article._id %>" class="btn btn-primary">Edit blog</a>
+  <a href="/blog" class="btn btn-secondary">See All</a>
+</div>
+
+<%- include('../partials/footer')  %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/prism-tomorrow-night-theme.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Rully's Blog | <%= pageSetting.titlePage %></title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="/" class="header__logo">Rully's Blog</a>
+    <div class="header__nav">
+      <a href="/" class="header__nav--link <% if (pageSetting.pageName == 'home') { %> active <% } %>">Home</a>
+      <a href="/admin/articles"
+        class="header__nav--link <% if (pageSetting.pageName == 'blog') { %> active <% } %>">Blog</a>
+      <a href="" class="header__nav--link <% if (pageSetting.pageName == 'about') { %> active <% } %>">About</a>
+      <% if (user) { %>
+      <a href="/auth/logout" class="btn btn-gradient">Logout</a>
+      <% } else { %>
+      <a href="/auth/login" class="btn btn-gradient">Login</a>
+      <% } %>
+
+
+    </div>
+  </header>
+
+  <div class="content mt-3">
+    <main class="main">

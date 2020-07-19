@@ -1,0 +1,13 @@
+<%- include('../partials/header')  %>
+
+<% if (info.show) { %>
+<div class="card-info bg-<%= info.type %>  mb-2">
+  <%= info.message %>
+</div>
+<% } %>
+
+<div class="card">
+  <h4>Hello, <%= user.name %> </h4>
+</div>
+
+<%- include('../partials/footer')  %>

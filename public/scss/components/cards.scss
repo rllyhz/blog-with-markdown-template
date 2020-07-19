@@ -1,0 +1,125 @@
+@mixin card-property {
+  display: block;
+  max-width: 100%;
+  height: min-content;
+  border-radius: $borderRadius;
+  box-shadow: 0 0 3px 1px rgba($color: #2c2c2c, $alpha: .05);
+}
+
+@mixin card-bg-color {
+  &.bg-primary {
+    color: white;
+    background-color: $primaryColor !important;
+  }
+
+  &.bg-secondary {
+    color: white;
+    background-color: $secondaryColor !important;
+  }
+
+  &.bg-accent {
+    color: white;
+    background-color: $accentColor !important;
+  }
+
+  &.bg-success {
+    color: white;
+    background-color: $successColor !important;
+  }
+
+  &.bg-error {
+    color: white;
+    background-color: $errorColor !important;
+  }
+
+  &.bg-warning {
+    color: white;
+    background-color: $warningColor !important;
+  }
+}
+
+div.card, .card {
+  @include card-property();
+  padding: 2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+
+    a {
+      color: $accentColor;
+      text-decoration: underline;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+
+  &__details {
+    margin-top: 5px;
+    margin-bottom: 12px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .createdBy, a.createdBy, .createdAt, a.createdAt, .updatedAt, a.updatedAt {
+      opacity: .5;
+    } 
+    
+    .createdBy, a.createdBy {
+      color: $primaryColor;
+    }
+
+    .createdAt, a.createdAt, .updatedAt, a.updatedAt {
+      padding-left: 1rem;
+    }
+
+    p.description, .description {
+      margin-top: 1rem;
+    }
+  }
+
+  @include card-bg-color();
+}
+
+div.card-info, .card-info {
+  @include card-property();
+  position: relative;
+  padding: .6rem;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  &::after {
+    content: "Click to remove";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255, .5) !important;
+    color: rgb(156, 156, 156);
+    font-weight: bold;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: all 300ms;
+  }
+
+  &:hover {
+
+    &::after {
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  @include card-bg-color();
+}

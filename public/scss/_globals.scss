@@ -1,0 +1,169 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, **::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $backgroundColor;
+  color: $greyColorDark;
+
+  &::-webkit-scrollbar {
+    width: 8px;     /* width of the entire scrollbar */
+    height: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;        /* color of the tracking area */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $accentColor;    /* color of the scroll thumb */
+    border-radius: 20px; /* creates padding around scroll thumb */
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:active {
+  text-decoration: none;
+}
+
+a {
+  color: $linkTextColor;
+  transition: color 300ms;
+}
+
+a:hover {
+  color: $accentColor;
+}
+
+.content {
+  padding: 1.2rem 2.5rem;
+}
+
+.share-buttons {
+  position: fixed;
+  bottom: 20%;
+  left: 0;
+  z-index: 1;
+  width: 2.5rem;
+  height: 3.2rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: $pinkColor;
+  transform: translate(-30%);
+  box-shadow: 2px 3px 12px -5px darken($pinkColor, 10%);
+  transition: all 300ms;
+
+  .buttons {
+    transform: translate(-20%, -35%);
+    opacity: 0;
+    transition: all 300ms 400ms;
+
+    a {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      background-color: $pinkColor;
+      border-radius: 50%;
+      opacity: 0;
+      box-shadow: 2px 3px 12px -5px darken($pinkColor, 10%);
+      transition: all 300ms 200ms;
+
+      &:hover {
+        background-color: $accentColor;
+      }
+
+      &:first-child, &:last-child {
+        transform: translateX(-50%);
+      }
+
+      &:nth-child(2) {
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translate(0);
+
+    .buttons {
+      transform: translate(120%, -35%);
+      opacity: 1;
+    }
+
+    .buttons a {
+      opacity: 1;
+    }
+  }
+}
+
+.nav-arrow-up, #nav-arrow-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $accentColor;
+  border-radius: 50%;
+  box-shadow: 1px 1px 12px 2px rgba($accentColor, .5);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30%);
+  transition: all 500ms;
+
+  .arrow-up {
+    display: block;
+    position: relative;
+    top: -12px;
+    right: 6px;
+    opacity: .7;
+    transition: opacity 300ms;
+    
+    &::before, &::after {
+      position: absolute;
+      content: "";
+      width: 3px;
+      height: 20px;
+      background-color: white;
+      border-radius: $borderRadius;
+    }
+    &::before {
+      transform: rotate(30deg);
+    }
+    &::after {
+      transform: rotate(-30deg);
+      left: 9px;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    box-shadow: none;
+
+    .arrow-up {
+      opacity: 1;
+    }
+  }
+}

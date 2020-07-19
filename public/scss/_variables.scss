@@ -1,0 +1,29 @@
+$pinkColor: #FAACA8;
+$purpleColor: #DE8AD8;
+$cyanColor: #95FFFF;
+$orangeColor: #F07C41;
+
+$greyColorDark: #646464;
+$greyColorlight: #dadada;
+$darkColor: #02244A;
+
+$primaryColor: $pinkColor;
+$secondaryColor: $greyColorDark;
+$accentColor: $orangeColor;
+
+$primaryColor2: opacify($primaryColor, .6);
+
+$backgroundColor: #fff;
+$linkTextColor: #1CBAE4;
+
+$successColor: hsl(115, 89%, 70%);
+$errorColor: hsl(2, 89%, 70%);
+$warningColor: hsl(61, 89%, 70%);
+
+$successColorDark: hsl(115, 89%, 50%);
+$errorColorDark: hsl(2, 89%, 50%);
+$warningColorDark: hsl(61, 89%, 50%);
+
+$sdf: #C3A9FF;  
+
+$borderRadius: 5px;

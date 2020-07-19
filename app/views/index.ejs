@@ -1,0 +1,13 @@
+<%- include('./partials/header')  %>
+
+<div class="card">
+  <form role="form" action="/" enctype="multipart/form-data" method="POST">
+    <input type="file" accept="image/*" name="file">
+    <button class="btn btn-gradient" type="submit" name="submit">Upload</button>
+  </form>
+
+  <a href="/auth/login" class="btn btn-primary mt-2">Login</a>
+  <a href="/auth/register" class="btn btn-accent">Register</a>
+</div>
+
+<%- include('./partials/footer')  %>

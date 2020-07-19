@@ -1,0 +1,529 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, **::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #646464;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  /* width of the entire scrollbar */
+  height: 3px;
+}
+body::-webkit-scrollbar-track {
+  background: none;
+  /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #F07C41;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* creates padding around scroll thumb */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover, a:active {
+  text-decoration: none;
+}
+
+a {
+  color: #1CBAE4;
+  transition: color 300ms;
+}
+
+a:hover {
+  color: #F07C41;
+}
+
+.content {
+  padding: 1.2rem 2.5rem;
+}
+
+.share-buttons {
+  position: fixed;
+  bottom: 20%;
+  left: 0;
+  z-index: 1;
+  width: 2.5rem;
+  height: 3.2rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #FAACA8;
+  transform: translate(-30%);
+  box-shadow: 2px 3px 12px -5px #f77e78;
+  transition: all 300ms;
+}
+.share-buttons .buttons {
+  transform: translate(-20%, -35%);
+  opacity: 0;
+  transition: all 300ms 400ms;
+}
+.share-buttons .buttons a {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background-color: #FAACA8;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 2px 3px 12px -5px #f77e78;
+  transition: all 300ms 200ms;
+}
+.share-buttons .buttons a:hover {
+  background-color: #F07C41;
+}
+.share-buttons .buttons a:first-child, .share-buttons .buttons a:last-child {
+  transform: translateX(-50%);
+}
+.share-buttons .buttons a:nth-child(2) {
+  margin: 1rem 0;
+}
+.share-buttons:hover {
+  transform: translate(0);
+}
+.share-buttons:hover .buttons {
+  transform: translate(120%, -35%);
+  opacity: 1;
+}
+.share-buttons:hover .buttons a {
+  opacity: 1;
+}
+
+.nav-arrow-up, #nav-arrow-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #F07C41;
+  border-radius: 50%;
+  box-shadow: 1px 1px 12px 2px rgba(240, 124, 65, 0.5);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30%);
+  transition: all 500ms;
+}
+.nav-arrow-up .arrow-up, #nav-arrow-up .arrow-up {
+  display: block;
+  position: relative;
+  top: -12px;
+  right: 6px;
+  opacity: 0.7;
+  transition: opacity 300ms;
+}
+.nav-arrow-up .arrow-up::before, .nav-arrow-up .arrow-up::after, #nav-arrow-up .arrow-up::before, #nav-arrow-up .arrow-up::after {
+  position: absolute;
+  content: "";
+  width: 3px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+.nav-arrow-up .arrow-up::before, #nav-arrow-up .arrow-up::before {
+  transform: rotate(30deg);
+}
+.nav-arrow-up .arrow-up::after, #nav-arrow-up .arrow-up::after {
+  transform: rotate(-30deg);
+  left: 9px;
+}
+.nav-arrow-up.active, #nav-arrow-up.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-arrow-up:hover, #nav-arrow-up:hover {
+  box-shadow: none;
+}
+.nav-arrow-up:hover .arrow-up, #nav-arrow-up:hover .arrow-up {
+  opacity: 1;
+}
+
+*.mt-1, .mt-1 {
+  margin-top: 1rem;
+}
+
+*.mt-2, .mt-2 {
+  margin-top: 1.2rem;
+}
+
+*.mt-3, .mt-3 {
+  margin-top: 1.5rem;
+}
+
+*.mt-4, .mt-4 {
+  margin-top: 1.8rem;
+}
+
+*.mt-5, .mt-5 {
+  margin-top: 21rem;
+}
+
+*.mb-1, .mb-1 {
+  margin-bottom: 1rem;
+}
+
+*.mb-2, .mb-2 {
+  margin-bottom: 1.2rem;
+}
+
+*.mb-3, .mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+*.mb-4, .mb-4 {
+  margin-bottom: 1.8rem;
+}
+
+*.mb-5, .mb-5 {
+  margin-bottom: 21rem;
+}
+
+*.text-primary {
+  color: #FAACA8 !important;
+}
+
+*.text-accent {
+  color: #F07C41 !important;
+}
+
+*.text-secondary {
+  color: #646464 !important;
+}
+
+*.text-white {
+  color: white !important;
+}
+
+*.text-center {
+  text-align: center !important;
+}
+
+button, button.btn, .btn, a.btn {
+  display: inline-block;
+  min-width: 4.8rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: all 300ms;
+}
+button:hover, button.btn:hover, .btn:hover, a.btn:hover {
+  opacity: 0.85;
+}
+button-gradient, button.btn-gradient, .btn-gradient, a.btn-gradient {
+  background-color: #FAACA8;
+  background-image: linear-gradient(16deg, #FAACA8 0%, #DE8AD8 100%);
+}
+button-gradient:hover, button.btn-gradient:hover, .btn-gradient:hover, a.btn-gradient:hover {
+  background-image: linear-gradient(60deg, #FAACA8 0%, #DE8AD8 100%);
+}
+button-primary, button.btn-primary, .btn-primary, a.btn-primary {
+  background-color: #FAACA8;
+}
+button-secondary, button.btn-secondary, .btn-secondary, a.btn-secondary {
+  background-color: #646464;
+}
+button-accent, button.btn-accent, .btn-accent, a.btn-accent {
+  background-color: #F07C41;
+}
+button-danger, button.btn-danger, .btn-danger, a.btn-danger {
+  background-color: #ff4b4b;
+}
+
+div.card, .card {
+  display: block;
+  max-width: 100%;
+  height: min-content;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px rgba(44, 44, 44, 0.05);
+  padding: 2rem;
+}
+div.card:not(:last-child), .card:not(:last-child) {
+  margin-bottom: 1rem;
+}
+div.card__title a, .card__title a {
+  color: #F07C41;
+  text-decoration: underline;
+}
+div.card__title a:hover, .card__title a:hover {
+  color: #FAACA8;
+}
+div.card__details, .card__details {
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+div.card__details p, .card__details p {
+  margin: 0;
+  padding: 0;
+}
+div.card__details .createdBy, div.card__details a.createdBy, div.card__details .createdAt, div.card__details a.createdAt, div.card__details .updatedAt, div.card__details a.updatedAt, .card__details .createdBy, .card__details a.createdBy, .card__details .createdAt, .card__details a.createdAt, .card__details .updatedAt, .card__details a.updatedAt {
+  opacity: 0.5;
+}
+div.card__details .createdBy, div.card__details a.createdBy, .card__details .createdBy, .card__details a.createdBy {
+  color: #FAACA8;
+}
+div.card__details .createdAt, div.card__details a.createdAt, div.card__details .updatedAt, div.card__details a.updatedAt, .card__details .createdAt, .card__details a.createdAt, .card__details .updatedAt, .card__details a.updatedAt {
+  padding-left: 1rem;
+}
+div.card__details p.description, div.card__details .description, .card__details p.description, .card__details .description {
+  margin-top: 1rem;
+}
+div.card.bg-primary, .card.bg-primary {
+  color: white;
+  background-color: #FAACA8 !important;
+}
+div.card.bg-secondary, .card.bg-secondary {
+  color: white;
+  background-color: #646464 !important;
+}
+div.card.bg-accent, .card.bg-accent {
+  color: white;
+  background-color: #F07C41 !important;
+}
+div.card.bg-success, .card.bg-success {
+  color: white;
+  background-color: #7af76e !important;
+}
+div.card.bg-error, .card.bg-error {
+  color: white;
+  background-color: #f7736e !important;
+}
+div.card.bg-warning, .card.bg-warning {
+  color: white;
+  background-color: #f4f76e !important;
+}
+
+div.card-info, .card-info {
+  display: block;
+  max-width: 100%;
+  height: min-content;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px rgba(44, 44, 44, 0.05);
+  position: relative;
+  padding: 0.6rem;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+div.card-info::after, .card-info::after {
+  content: "Click to remove";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  color: #9c9c9c;
+  font-weight: bold;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: all 300ms;
+}
+div.card-info:hover::after, .card-info:hover::after {
+  visibility: visible;
+  transform: translateY(0);
+}
+div.card-info.bg-primary, .card-info.bg-primary {
+  color: white;
+  background-color: #FAACA8 !important;
+}
+div.card-info.bg-secondary, .card-info.bg-secondary {
+  color: white;
+  background-color: #646464 !important;
+}
+div.card-info.bg-accent, .card-info.bg-accent {
+  color: white;
+  background-color: #F07C41 !important;
+}
+div.card-info.bg-success, .card-info.bg-success {
+  color: white;
+  background-color: #7af76e !important;
+}
+div.card-info.bg-error, .card-info.bg-error {
+  color: white;
+  background-color: #f7736e !important;
+}
+div.card-info.bg-warning, .card-info.bg-warning {
+  color: white;
+  background-color: #f4f76e !important;
+}
+
+form, form.form, .form {
+  display: block;
+  max-width: 90%;
+  padding: 5px;
+}
+form .form-group, form.form .form-group, .form .form-group {
+  position: relative;
+  display: block;
+  width: inherit;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+form .form-group label, form .form-group .form-control, form .form-group input.form-control, form .form-group textarea.form-control, form.form .form-group label, form.form .form-group .form-control, form.form .form-group input.form-control, form.form .form-group textarea.form-control, .form .form-group label, .form .form-group .form-control, .form .form-group input.form-control, .form .form-group textarea.form-control {
+  display: block;
+  width: 95%;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+form .form-group label, form.form .form-group label, .form .form-group label {
+  color: #F07C41;
+  margin-bottom: 8px;
+}
+form .form-group .form-control, form .form-group input.form-control, form .form-group textarea.form-control, form.form .form-group .form-control, form.form .form-group input.form-control, form.form .form-group textarea.form-control, .form .form-group .form-control, .form .form-group input.form-control, .form .form-group textarea.form-control {
+  padding: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  border: none;
+  border: 1px solid #F07C41;
+  border-radius: 5px;
+  color: #F07C41;
+  box-shadow: none;
+  transition: all 300ms;
+}
+form .form-group .form-control:placeholder-shown, form .form-group input.form-control:placeholder-shown, form .form-group textarea.form-control:placeholder-shown, form.form .form-group .form-control:placeholder-shown, form.form .form-group input.form-control:placeholder-shown, form.form .form-group textarea.form-control:placeholder-shown, .form .form-group .form-control:placeholder-shown, .form .form-group input.form-control:placeholder-shown, .form .form-group textarea.form-control:placeholder-shown {
+  color: #faaca8;
+}
+form .form-group .form-control:focus, form .form-group input.form-control:focus, form .form-group textarea.form-control:focus, form.form .form-group .form-control:focus, form.form .form-group input.form-control:focus, form.form .form-group textarea.form-control:focus, .form .form-group .form-control:focus, .form .form-group input.form-control:focus, .form .form-group textarea.form-control:focus {
+  color: #FAACA8;
+  border-color: #FAACA8;
+  box-shadow: 0 0 4px 2px rgba(250, 172, 168, 0.4);
+}
+form .form-group .form-control::-webkit-scrollbar, form .form-group input.form-control::-webkit-scrollbar, form .form-group textarea.form-control::-webkit-scrollbar, form.form .form-group .form-control::-webkit-scrollbar, form.form .form-group input.form-control::-webkit-scrollbar, form.form .form-group textarea.form-control::-webkit-scrollbar, .form .form-group .form-control::-webkit-scrollbar, .form .form-group input.form-control::-webkit-scrollbar, .form .form-group textarea.form-control::-webkit-scrollbar {
+  width: 8px;
+  /* width of the entire scrollbar */
+  height: 3px;
+}
+form .form-group .form-control::-webkit-scrollbar-track, form .form-group input.form-control::-webkit-scrollbar-track, form .form-group textarea.form-control::-webkit-scrollbar-track, form.form .form-group .form-control::-webkit-scrollbar-track, form.form .form-group input.form-control::-webkit-scrollbar-track, form.form .form-group textarea.form-control::-webkit-scrollbar-track, .form .form-group .form-control::-webkit-scrollbar-track, .form .form-group input.form-control::-webkit-scrollbar-track, .form .form-group textarea.form-control::-webkit-scrollbar-track {
+  background: none;
+  /* color of the tracking area */
+}
+form .form-group .form-control::-webkit-scrollbar-thumb, form .form-group input.form-control::-webkit-scrollbar-thumb, form .form-group textarea.form-control::-webkit-scrollbar-thumb, form.form .form-group .form-control::-webkit-scrollbar-thumb, form.form .form-group input.form-control::-webkit-scrollbar-thumb, form.form .form-group textarea.form-control::-webkit-scrollbar-thumb, .form .form-group .form-control::-webkit-scrollbar-thumb, .form .form-group input.form-control::-webkit-scrollbar-thumb, .form .form-group textarea.form-control::-webkit-scrollbar-thumb {
+  background-color: #FAACA8;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* creates padding around scroll thumb */
+}
+
+.markdown, div.markdown, span.markdown {
+  display: block;
+  max-width: 100%;
+  background-color: #02244A;
+  border-radius: 5px;
+  padding: 0.75rem 1.125rem;
+  color: white;
+}
+.markdown strong, .markdown b, .markdown p strong, .markdown p b, div.markdown strong, div.markdown b, div.markdown p strong, div.markdown p b, span.markdown strong, span.markdown b, span.markdown p strong, span.markdown p b {
+  color: #FAACA8;
+}
+.markdown img, .markdown .image, .markdown img.image, .markdown p img, .markdown p img.image, .markdown p .image, div.markdown img, div.markdown .image, div.markdown img.image, div.markdown p img, div.markdown p img.image, div.markdown p .image, span.markdown img, span.markdown .image, span.markdown img.image, span.markdown p img, span.markdown p img.image, span.markdown p .image {
+  display: block;
+  max-width: 100%;
+  padding: 0;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.markdown pre, div.markdown pre, span.markdown pre {
+  padding: 1rem;
+  background-color: rgba(243, 213, 218, 0.3);
+  color: white;
+  border-radius: 5px;
+}
+.markdown ul, div.markdown ul, span.markdown ul {
+  padding: 1.2rem;
+}
+.markdown ul li, div.markdown ul li, span.markdown ul li {
+  list-style: circle;
+}
+.markdown h1, .markdown h2, .markdown h3, .markdown h3, .markdown h4, .markdown h5, .markdown h6, div.markdown h1, div.markdown h2, div.markdown h3, div.markdown h3, div.markdown h4, div.markdown h5, div.markdown h6, span.markdown h1, span.markdown h2, span.markdown h3, span.markdown h3, span.markdown h4, span.markdown h5, span.markdown h6 {
+  position: relative;
+  display: inline-block;
+  color: #FAACA8;
+}
+.markdown h1::before, .markdown h2::before, .markdown h3::before, .markdown h3::before, .markdown h4::before, .markdown h5::before, .markdown h6::before, div.markdown h1::before, div.markdown h2::before, div.markdown h3::before, div.markdown h3::before, div.markdown h4::before, div.markdown h5::before, div.markdown h6::before, span.markdown h1::before, span.markdown h2::before, span.markdown h3::before, span.markdown h3::before, span.markdown h4::before, span.markdown h5::before, span.markdown h6::before {
+  content: "";
+  position: absolute;
+  left: 1%;
+  bottom: -10%;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(250, 172, 168, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  color: #FAACA8;
+  background-color: white;
+}
+.header__logo {
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: all 300ms;
+}
+.header__logo:hover {
+  opacity: 0.85;
+}
+.header__nav--link {
+  color: inherit;
+  position: relative;
+  transition: all 300ms;
+}
+.header__nav--link:not(:last-child) {
+  margin-right: 1.25rem;
+}
+.header__nav--link::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #F07C41;
+  opacity: 0;
+  transition: all 300ms;
+}
+.header__nav--link:hover, .header__nav--link.active {
+  color: #F07C41;
+  position: relative;
+}
+.header__nav--link:hover::after, .header__nav--link.active::after {
+  opacity: 1;
+}
+
+.sidebar, div.sidebar {
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,22 @@
+<%- include('../partials/header')  %>
+
+<!-- <a href="/articles/new" class="btn btn-primary">Create new blog</a> -->
+
+<% articles.forEach(article => { %>
+<div class="card mt-2">
+  <h3 class="card__title">
+    <a href="/blog/<%= article.slug %>"><%= article.title %></a>
+  </h3>
+  <div class="card__details">
+    <a href="" class="createdBy">Author: @<%= article.createdBy %></a>
+    <p class="createdAt">Created At: <%= article.createdAt.toLocaleDateString() %> </p>
+    <p class="updatedAt">Updated At: <%= article.updatedAt.toLocaleDateString() %> </p>
+    <p class="description"><%= article.description %> </p>
+  </div>
+  <div class="card__buttons">
+    <a href="/blog/<%= article.slug %>" class="btn btn-primary">See more</a>
+  </div>
+</div>
+<% }) %>
+
+<%- include('../partials/footer')  %>

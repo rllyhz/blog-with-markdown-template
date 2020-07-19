@@ -1,0 +1,27 @@
+<%- include('../../partials/header')  %>
+
+<a href="/admin/articles/new" class="btn btn-gradient">Create new blog</a>
+
+<% articles.forEach(article => { %>
+<div class="card mt-2">
+  <h3 class="card__title">
+    <a href="/blog/<%= article.slug %>"><%= article.title %></a>
+  </h3>
+  <div class="card__details">
+    <p class="createdBy">
+      Penulis: <a href="/author/<%= article.createdBy %>">@<%= article.createdBy %></a>
+    </p>
+    <p class="createdAt">Dibuat pada: <%= article.createdAt.toLocaleDateString() %> </p>
+    <p class="updatedAt">Terakhir update: <%= article.updatedAt.toLocaleDateString() %> </p>
+    <p class="description"><%= article.description %> </p>
+  </div>
+  <div class="card__buttons">
+    <a href="/admin/articles/show/<%= article.slug %>" class="btn btn-primary">See preview</a>
+    <a href="/admin/articles/edit/<%= article._id %>" class="btn btn-secondary">Edit blog</a>
+    <a href="/admin/articles/delete/<%= article._id %>" class="btn btn-danger"
+      onclick="return confirm('Yakin ingin menghapus blog ini?')">Delete</a>
+  </div>
+</div>
+<% }) %>
+
+<%- include('../../partials/footer')  %>
